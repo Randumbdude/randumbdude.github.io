@@ -1,7 +1,211 @@
-html {
-    background-color: darkblue;
+:root {
+    /* Background */
+    --page-bg: #6486ff;
+
+    /* Main container */
+    --site-top: #8ab6ff;
+    --site-bottom: #4d79ea;
+    --site-border: #2744aa;
+
+    /* Header */
+    --header-top: #75a5ff;
+    --header-bottom: #3465d9;
+
+    /* Panels */
+    --panel-bg: rgba(255, 255, 255, .15);
+    --panel-border: #3659d7;
+
+    /* Section headers */
+    --title-top: #73a8ff;
+    --title-bottom: #4676e9;
+
+    /* Footer */
+    --footer-top: #4f7bf0;
+    --footer-bottom: #2f56c7;
+
+    /* Text */
+    --main-text: white;
+    --content-text: #13234f;
+
+    /* Hover */
+    --hover-bg: rgba(255, 255, 255, .15);
 }
 
-p, h1 {
-    color: yellow;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("images/xp.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    font-family: Verdana, sans-serif;
+    padding: 40px;
+}
+
+.site {
+    transform: scale(.75);
+    transform-origin: top center;
+
+    max-width: 1400px;
+    margin: auto;
+
+    background: linear-gradient(to bottom,
+            var(--site-top),
+            var(--site-bottom));
+
+    border-radius: 40px;
+    overflow: hidden;
+
+    border: 2px solid var(--site-border);
+
+    display: grid;
+
+    grid-template-columns:
+        180px 1fr 180px;
+
+    grid-template-rows:
+        auto 1fr auto;
+
+    gap: 10px;
+
+    padding: 10px;
+}
+
+.header {
+    grid-column: 1 / 4;
+
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    padding: 20px;
+
+    color: var(--main-text);
+
+    background: linear-gradient(to bottom,
+            var(--header-top),
+            var(--header-bottom));
+
+    border-radius: 20px;
+}
+
+.logo {
+    width: 100px;
+}
+
+.left-sidebar,
+.right-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.menu-box,
+.poster-box,
+.panel {
+    background: var(--panel-bg);
+
+    border: 1px solid var(--panel-border);
+
+    border-radius: 12px;
+
+    overflow: hidden;
+}
+
+.menu-box h3,
+.panel h2 {
+    background: linear-gradient(to bottom,
+            var(--title-top),
+            var(--title-bottom));
+
+    color: var(--main-text);
+
+    padding: 8px;
+    text-align: center;
+}
+
+.menu-box a {
+    display: block;
+
+    color: var(--main-text);
+
+    text-decoration: none;
+
+    padding: 8px 12px;
+
+    border-top: 1px solid var(--panel-bg);
+}
+
+.menu-box a:hover {
+    background: var(--hover-bg);
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.panel {
+    padding-bottom: 15px;
+}
+
+.panel p {
+    color: var(--content-text);
+    line-height: 1.7;
+    padding: 15px;
+}
+
+.banner {
+    width: 100%;
+    display: block;
+}
+
+.poster-box img {
+    width: 100%;
+    display: block;
+}
+
+#updates {
+    padding: 15px;
+    color: var(--content-text);
+}
+
+.update {
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+
+    border-bottom: 1px solid rgba(0, 0, 0, .15);
+}
+
+.footer {
+    grid-column: 1 / 4;
+
+    text-align: center;
+
+    padding: 20px;
+
+    color: var(--main-text);
+
+    background: linear-gradient(to bottom,
+            var(--footer-top),
+            var(--footer-bottom));
+
+    border-radius: 20px;
+}
+
+@media (max-width: 900px) {
+    .site {
+        grid-template-columns: 1fr;
+    }
+
+    .header,
+    .footer {
+        grid-column: auto;
+    }
 }
